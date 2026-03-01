@@ -1,12 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createDeal, analyzeText, analyzeFile, generateFollowUp } from '../services/api';
+import API from '../services/api';
 import HealthGauge from '../components/Deal/HealthGauge';
 import { Upload, FileText, Mic, Image, Loader2, ChevronRight, Sparkles, Mail, Square, Circle, Volume2, VolumeX } from 'lucide-react';
 import { getScoreBg } from '../utils/dealHealth';
-import axios from 'axios';
-
-const API = axios.create({ baseURL: 'http://localhost:5001' });
 
 const STAGES = ['discovery', 'proposal', 'negotiation', 'closing'];
 const INPUT_TYPES = [

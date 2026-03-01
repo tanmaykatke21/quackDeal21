@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getDeal, updateOutcome } from '../services/api';
-import axios from 'axios';
+import API from '../services/api';
 import HealthGauge from '../components/Deal/HealthGauge';
 import ObjectionsList from '../components/Deal/ObjectionsList';
 import { getStageBadge, getScoreColor, formatCurrency } from '../utils/dealHealth';
@@ -11,8 +11,6 @@ import {
   Mail, DollarSign, Calendar, ChevronDown, StickyNote, Save, Trash2,
   Pencil, X, Sparkles, Send, Bot, TrendingUp, AlertTriangle, Lightbulb, Zap
 } from 'lucide-react';
-
-const API = axios.create({ baseURL: 'http://localhost:5001' });
 
 // ── Insight type config ───────────────────────────────────────
 const INSIGHT_STYLES = {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import API from '../services/api';
 import { Bell, X, CheckCheck, AlertTriangle, Clock, Mail, TrendingDown } from 'lucide-react';
 
 const API = axios.create({ baseURL: 'http://localhost:5001' });
