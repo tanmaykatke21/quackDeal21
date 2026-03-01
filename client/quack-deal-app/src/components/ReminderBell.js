@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import API from '../services/api';
 import { Bell, X, CheckCheck, AlertTriangle, Clock, Mail, TrendingDown } from 'lucide-react';
 
-const API = axios.create({ baseURL: 'http://localhost:5001' });
-
 const PRIORITY_STYLES = {
   urgent: { bg: 'bg-red-50 border-red-200',    badge: 'bg-red-500',    text: 'text-red-700',    icon: '🔴' },
   high:   { bg: 'bg-amber-50 border-amber-200', badge: 'bg-amber-500',  text: 'text-amber-700',  icon: '🟡' },
