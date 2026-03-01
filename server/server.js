@@ -11,6 +11,11 @@ app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:3000' }));
 app.use(express.json({ limit: '25mb' }));
 app.use(express.urlencoded({ extended: true, limit: '25mb' }));
 
+// ── Health check (no DB needed) ─────────────────────────────
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', service: 'MeetingMind API', time: new Date().toISOString() });
+});
+
 // ── Lazy Snowflake init (serverless-safe) ───────────────────
 let _snowflakeReady = false;
 app.use(async (req, res, next) => {
@@ -33,11 +38,6 @@ app.use('/api/analyze',   require('./routes/analyze'));
 app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/reminders', require('./routes/reminders'));
 app.use('/api/chat',      require('./routes/chat'));
-
-// ── Health check ────────────────────────────────────────────
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', service: 'MeetingMind API', time: new Date().toISOString() });
-});
 
 // ── 404 handler ─────────────────────────────────────────────
 app.use('*', (req, res) => {
